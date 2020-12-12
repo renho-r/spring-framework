@@ -1,6 +1,7 @@
 pluginManagement {
 	repositories {
-		gradlePluginPortal()
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        gradlePluginPortal()
 		maven { url 'https://repo.spring.io/plugins-release' }
 	}
 }
@@ -35,3 +36,7 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
+include 'spring-renho'
+include 'spring-renho:spring-renho-context'
+findProject(':spring-renho:spring-renho-context')?.name = 'spring-renho-context'
+
